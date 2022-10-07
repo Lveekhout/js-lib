@@ -4,19 +4,23 @@ function GamePadButtonEventController() {
 
     let buttonA = 0
     let buttonX = 0
-    let buttonPadLeft = 0
-    let buttonPadRight = 0
+    let buttonLeft = 0
+    let buttonRight = 0
     let triggerLeft = 0
     let triggerRight = 0
+    let buttonPadLeft = 0
+    let buttonPadRight = 0
     let axesRightX = 0
     let axesLeftY = 0
 
     this.onButtonAChanged
     this.onButtonXChanged
-    this.onButtonPadLeftChanged
-    this.onButtonPadRightChanged
+    this.onButtonLeftChanged
+    this.onButtonRightChanged
     this.onTriggerLeftChanged
     this.onTriggerRightChanged
+    this.onButtonPadLeftChanged
+    this.onButtonPadRightChanged
     this.onAxesLeftXChanged
     this.onAxesLeftYChanged
 
@@ -30,6 +34,14 @@ function GamePadButtonEventController() {
             if (gp.buttons[2].value != buttonX) {
                 buttonX = gp.buttons[2].value
                 if (this.onButtonXChanged) this.onButtonXChanged(buttonX)
+            }
+            if (gp.buttons[4].value != buttonLeft) {
+                buttonLeft = gp.buttons[4].value
+                if (this.onButtonLeftChanged) this.onButtonLeftChanged(buttonLeft)
+            }
+            if (gp.buttons[5].value != buttonRight) {
+                buttonRight = gp.buttons[5].value
+                if (this.onButtonRightChanged) this.onButtonRightChanged(buttonRight)
             }
             if (gp.buttons[6].value != triggerLeft) {
                 triggerLeft = gp.buttons[6].value
